@@ -1,0 +1,23 @@
+# Use a lightweight Python image as the base
+FROM huggingface/transformers-cpu:latest
+# FROM nexus.mapnamind.com/base2:1
+# Set the working directory
+WORKDIR /app
+
+# # Copy the requirements file to the container
+# COPY requirements.txt .
+
+# # Install the dependencies
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code to the container
+COPY main.py /app/main.py
+
+# # Expose the port that the application will run on
+# EXPOSE 8010
+
+# # Start the application using uvicorn
+# CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8010"]
+
+# CMD ["/bin/bash"]
+CMD [ "python3", "main.py" ]

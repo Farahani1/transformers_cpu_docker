@@ -1,0 +1,10 @@
+services:
+  test_transformers:
+    image: test_transformers:latest
+    container_name: transformers-cpu
+    environment:
+      - BERT_FILES_PATH=./parsbert
+    
+    volumes:
+      - /mnt/c/Files/parsbert:/app/parsbert
+    
